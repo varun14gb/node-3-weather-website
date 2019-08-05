@@ -9,7 +9,7 @@ const forecast = (longitude, latitude, callack) => {
         } else if (body.error) {
             return callack('Unable to find location!')
         } else {
-            callack(undefined, body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' degrees out. There is a ' + (body.currently.precipProbability * 100) + '% chance of rain.')
+            callack(undefined, body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' degrees out. There is a ' + (body.currently.precipProbability * 100) + '% chance of rain. Minimum temperature is ' + body.daily.data[0].temperatureMin + ' and maximum temperature is ' + body.daily.data[0].temperatureMax + '.' )
         }
     })
 }
